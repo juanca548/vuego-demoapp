@@ -1,0 +1,17 @@
+version: "3.9"
+networks:
+  vuego-network:
+    driver: bridge
+services:
+  web:
+    build: ./spa
+    ports:
+      - "5000:80"
+    networks:
+      - vuego-network
+  server:
+    build: ./server
+    ports:
+      - "4000:4000"
+    networks:
+      - vuego-network
